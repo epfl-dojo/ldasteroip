@@ -11,7 +11,7 @@ Template.hello.helpers({
 });
 
 Template.hello.events({
-  'click button.TATA': function () {
+  'click button': function () {
     // increment the counter when button is clicked
     Session.set('counter', Session.get('counter') + 1);
     var sciper = document.getElementById("sciper").value;
