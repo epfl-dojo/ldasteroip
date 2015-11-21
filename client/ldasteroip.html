@@ -1,11 +1,64 @@
 <head>
   <title>ldasteroip</title>
+    <!--  ___           ___                       ___                       ___           ___     
+         /__/\         /  /\          ___        /__/\        ___          /__/\         /  /\    
+         \  \:\       /  /::\        /  /\       \  \:\      /  /\         \  \:\       /  /:/_   
+          \  \:\     /  /:/\:\      /  /:/        \__\:\    /  /:/          \  \:\     /  /:/ /\  
+      _____\__\:\   /  /:/  \:\    /  /:/     ___ /  /::\  /__/::\      _____\__\:\   /  /:/_/::\ 
+     /__/::::::::\ /__/:/ \__\:\  /  /::\    /__/\  /:/\:\ \__\/\:\__  /__/::::::::\ /__/:/__\/\:\
+     \  \:\~~\~~\/ \  \:\ /  /:/ /__/:/\:\   \  \:\/:/__\/    \  \:\/\ \  \:\~~\~~\/ \  \:\ /~~/:/
+      \  \:\  ~~~   \  \:\  /:/  \__\/  \:\   \  \::/          \__\::/  \  \:\  ~~~   \  \:\  /:/ 
+       \  \:\        \  \:\/:/        \  \:\   \  \:\          /__/:/    \  \:\        \  \:\/:/  
+        \  \:\        \  \::/          \__\/    \  \:\         \__\/      \  \:\        \  \::/   
+         \__\/         \__\/                     \__\/                     \__\/         \__\/    
+          ___           ___           ___           ___     
+         /__/\         /  /\         /  /\         /  /\    
+         \  \:\       /  /:/_       /  /::\       /  /:/_   
+          \__\:\     /  /:/ /\     /  /:/\:\     /  /:/ /\  
+      ___ /  /::\   /  /:/ /:/_   /  /:/~/:/    /  /:/ /:/_ 
+     /__/\  /:/\:\ /__/:/ /:/ /\ /__/:/ /:/___ /__/:/ /:/ /\
+     \  \:\/:/__\/ \  \:\/:/ /:/ \  \:\/:::::/ \  \:\/:/ /:/
+      \  \::/       \  \::/ /:/   \  \::/~~~~   \  \::/ /:/ 
+       \  \:\        \  \:\/:/     \  \:\        \  \:\/:/  
+        \  \:\        \  \::/       \  \:\        \  \::/   
+         \__\/         \__\/         \__\/         \__\/    
+    -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </head>
-
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+    <div id="container">
+        <div class="row">
+            <div class="col-md-3"><img src="https://unsplash.it/300/500/?random" /></div>
+            <div class="col-md-3"><img src="https://unsplash.it/300/500/?random" /></div>
+            <div class="col-md-6">
+                <!-- Grande en haut à droite -->
+                {{> hello}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Grande en bas à gauche -->
+                {{> container}}
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3"><img src="https://unsplash.it/300/300/?random" /></div>
+                    <div class="col-md-3"><img src="https://unsplash.it/300/300/?random" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><img src="https://unsplash.it/300/300/?random" /></div>
+                    <div class="col-md-3"><img src="https://unsplash.it/300/300/?random" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <template name="hello">
@@ -24,4 +77,13 @@
 
 <template name="user">
     <li>{{displayName}} (SCIPER {{sciper}})</li>
+</template>
+
+
+<template name="container">
+    <ul>
+        {{#each users}}
+            <li>{{displayName}} (SCIPER {{sciper}})</li>
+        {{/each}}
+    </ul>
 </template>

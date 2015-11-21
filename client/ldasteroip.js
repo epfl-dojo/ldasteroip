@@ -6,12 +6,12 @@ Template.hello.helpers({
     return Session.get('counter');
   },
   users: function () {
-    return Session.get('userList');
+    return UserList.find();
   }
 });
 
 Template.hello.events({
-  'click button': function () {
+  'click button.TATA': function () {
     // increment the counter when button is clicked
     Session.set('counter', Session.get('counter') + 1);
     var sciper = document.getElementById("sciper").value;
@@ -20,15 +20,28 @@ Template.hello.events({
       if(err) {
         alert('ERROR: ' + err);
       } else {
-        var newUserList = Session.get('userList');
-        if (newUserList === undefined) {
-          newUserList = [];
-        }
-        newUserList.push(response);
-        Session.set('userList', newUserList);
-        document.getElementById("response").innerHTML = JSON.stringify(response);
+        // do nothing
       }
     });
   }
 });
 
+Template.container.helpers({
+  users: function () {
+    return UserList.find();
+  }
+});
+
+Template.container.events({
+  'click button': function () {
+    var sciper = document.getElementById("sciper").value;
+
+    Meteor.call('getUserBySciper', sciper, function(err, response) {
+      if(err) {
+        alert('ERROR: ' + err);
+      } else {
+        // do nothing
+      }
+    });
+  }
+});

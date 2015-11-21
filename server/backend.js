@@ -2,8 +2,8 @@ Meteor.startup(function () {
     // code to run on server at startup
 
     var ldapContext = Meteor.npmRequire('epfl-ldap')();
-     var getSyncUserBySciper = Meteor.wrapAsync(ldapContext.users.getUserBySciper);
-     var result = getSyncUserBySciper('133134');
+    var getSyncUserBySciper = Meteor.wrapAsync(ldapContext.users.getUserBySciper);
+    var result = getSyncUserBySciper('133134');
     //var result = {};
 
     console.log(result);
@@ -17,6 +17,7 @@ Meteor.methods({
        var getSyncUserBySciper = Meteor.wrapAsync(ldapContext.users.getUserBySciper);
        var result = getSyncUserBySciper(sciper);
        //insert result in db
+       UserList.insert(result);
        return result;
    },
     getCurrentTime: function (stuff) {
@@ -27,8 +28,5 @@ Meteor.methods({
 });
 
 Meteor.publish("UserList", function () {
-
-
         return UserList.find();
-
 });
